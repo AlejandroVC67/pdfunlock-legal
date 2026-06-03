@@ -1,0 +1,269 @@
+:root {
+  --accent: #5E5CE6;
+  --accent-light: rgba(94, 92, 230, 0.1);
+  --bg: #F2F2F7;
+  --surface: #ffffff;
+  --text-primary: #1c1c1e;
+  --text-secondary: #6e6e73;
+  --separator: rgba(0, 0, 0, 0.08);
+  --radius: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c1e;
+    --surface: #2c2c2e;
+    --text-primary: #f5f5f7;
+    --text-secondary: #98989d;
+    --separator: rgba(255, 255, 255, 0.08);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Layout ── */
+
+.page-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ── Header ── */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.app-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.app-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--accent);
+}
+
+.site-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: var(--text-primary);
+}
+
+.site-header p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+/* ── Nav tabs ── */
+
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.nav-tabs a {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-tabs a:hover {
+  background: var(--separator);
+  color: var(--text-primary);
+}
+
+.nav-tabs a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Document card ── */
+
+.doc-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+}
+
+.doc-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--separator);
+}
+
+/* ── Typography inside card ── */
+
+.doc-card h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.doc-card h2 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--text-primary);
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+
+.doc-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+.doc-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  line-height: 1.65;
+}
+
+.doc-card ul,
+.doc-card ol {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding-left: 20px;
+  margin-bottom: 10px;
+  line-height: 1.65;
+}
+
+.doc-card li {
+  margin-bottom: 4px;
+}
+
+.doc-card strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.doc-card a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.doc-card a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--separator);
+  margin: 24px 0;
+}
+
+/* ── Table ── */
+
+.doc-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.doc-card th {
+  text-align: left;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--text-secondary);
+  background: var(--bg);
+  border-bottom: 1px solid var(--separator);
+}
+
+.doc-card td {
+  padding: 10px 12px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--separator);
+  vertical-align: top;
+}
+
+.doc-card tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── "Not collected" badge ── */
+
+.badge-no {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #30a46c;
+  background: rgba(48, 164, 108, 0.1);
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+/* ── Footer ── */
+
+.site-footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 600px) {
+  .page-wrapper {
+    padding: 24px 16px 60px;
+  }
+
+  .doc-card {
+    padding: 24px 20px;
+  }
+
+  .doc-card h1 {
+    font-size: 22px;
+  }
+}
